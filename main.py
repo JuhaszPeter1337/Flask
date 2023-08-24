@@ -22,7 +22,7 @@ def get_user(user_id):
     
     return jsonify(user_data), 200
 
-# curl -X POST http://127.0.0.1:5000/create-user/632 -H 'Content-Type: application/json' -d '{"name": "John Doe"}'
+# curl -X POST http://127.0.0.1:8888/create-user/632 -H 'Content-Type: application/json' -d '{"name": "John Doe"}'
 @app.route("/create-user/<user_id>", methods = ["POST"])
 def create_user(user_id):
     id = user_id
@@ -31,8 +31,8 @@ def create_user(user_id):
     
     return jsonify(data), 201
 
-# curl -X GET http://127.0.0.1:5000/user
-# curl -X POST http://127.0.0.1:5000/user
+# curl -X GET http://127.0.0.1:8888/user
+# curl -X POST http://127.0.0.1:8888/user
 @app.route("/user", methods = ["POST", "GET"])
 def user():
     if request.method == "GET":
@@ -41,5 +41,5 @@ def user():
         return "POST"
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug = True, port = 8888)
 
