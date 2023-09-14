@@ -36,11 +36,13 @@ def create_user(user_id):
 @app.route("/user", methods = ["POST", "GET", "DELETE"])
 def user():
     if request.method == "GET":
-        return "GET"
+        response_data = "OK"
+        return jsonify(response_data), 200
     elif request.method == "POST":
-        return "POST"
+        response_data = "User created successfully"
+        return jsonify(response_data), 201
     else:
-        return "DELETE"
+        return "User deleted successfully", 204
 
 if __name__ == "__main__":
     app.run(debug = True, port = 8888)
