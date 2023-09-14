@@ -33,12 +33,14 @@ def create_user(user_id):
 
 # curl -X GET http://127.0.0.1:8888/user
 # curl -X POST http://127.0.0.1:8888/user
-@app.route("/user", methods = ["POST", "GET"])
+@app.route("/user", methods = ["POST", "GET", "DELETE"])
 def user():
     if request.method == "GET":
         return "GET"
-    else:
+    elif request.method == "POST":
         return "POST"
+    else:
+        return "DELETE"
 
 if __name__ == "__main__":
     app.run(debug = True, port = 8888)
